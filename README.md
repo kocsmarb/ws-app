@@ -4,3 +4,8 @@
 ```
 npm run start
 ```
+
+```
+ENVIRONMENT VARIABLES:
+
+```
