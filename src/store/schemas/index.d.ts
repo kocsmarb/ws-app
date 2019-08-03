@@ -10,3 +10,10 @@ export type Product = {
 };
 
 export type Category = string;
+
+export type User = {
+  id: Id,
+  email: string,
+};
+
+export type JWT = string;
