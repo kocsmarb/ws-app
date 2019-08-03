@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import RemoveIcon from '@material-ui/icons/Delete';
-import { Id } from '../../store/schemas/product';
+import { Id } from '../../store/schemas';
 import style from './Checkout.style';
 import { BasketItems } from '../../store/reducers/basket';
 

@@ -1,7 +1,7 @@
 import { AppState } from '../store/reducers';
 import * as actionCreators from '../store/actions';
 import Checkout from '../components/checkout/Checkout';
-import { Id } from '../store/schemas/product';
+import { Id } from '../store/schemas';
 import { BasketItems } from '../store/reducers/basket';
 import { 
   connect,

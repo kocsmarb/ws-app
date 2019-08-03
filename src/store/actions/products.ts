@@ -6,8 +6,10 @@ import {
   PRODUCTS_RECEIVE,
   CATEGORIES_RECEIVE,
   CATEGORIES_REQUEST,
+  ProductsReceiveAction,
+  CategoriesReceiveAction,
 } from './action-types';
-import * as ProductTypes from '../schemas/product';
+import * as Types from '../schemas';
 import client from '../../core/graphql/client';
 import { PRODUCTS_BY_CATEGORY_QUERY } from '../../core/graphql/operations/products';
 import { CATEGORIES_QUERY } from '../../core/graphql/operations/categories';
@@ -16,7 +18,7 @@ export const request = () => ({
   type: PRODUCTS_REQUEST,
 });
 
-export const receive = (items: ProductTypes.Product[]) => ({
+export const receive = (items: Types.Product[]): ProductsReceiveAction => ({
   type: PRODUCTS_RECEIVE,
   items,
 });
@@ -39,7 +41,7 @@ export const requestCategories = () => ({
   type: CATEGORIES_REQUEST,
 });
 
-export const receiveCategories = (items: ProductTypes.Category[]) => ({
+export const receiveCategories = (items: Types.Category[]): CategoriesReceiveAction => ({
   type: CATEGORIES_RECEIVE,
   items,
 });

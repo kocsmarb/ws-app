@@ -7,7 +7,7 @@ import {
 import { AppState } from '../store/reducers';
 import * as actionCreators from '../store/actions';
 import List from '../components/products/List';
-import { Product } from '../store/schemas/product';
+import { Product } from '../store/schemas';
 
 type StateToProps = {
   products: Product[],

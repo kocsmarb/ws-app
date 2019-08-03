@@ -2,7 +2,7 @@ import * as React from 'react';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import styles from './CategoryList.style';
-import { Category } from '../../store/schemas/product';
+import { Category } from '../../store/schemas';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -16,7 +16,6 @@ type Props = WithStyles & {
 
 const CategoryList: React.FC<Props> = (props: Props) => {
   const { classes, items } = props;
-  console.log(items);
   return (
     <Grid container spacing={4} className={classes.cardGrid} >
       {

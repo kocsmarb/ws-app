@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import MainMenu from '../components/header/MainMenu';
 import Footer from './Footer';
 import { makeStyles } from '@material-ui/core/styles';
+import { APP_TITLE } from '../config';
 
 const useStyles = makeStyles(theme => ({
   top: {
@@ -19,7 +20,7 @@ export const Layout: React.FC<Props> = ({ top, children }) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <MainMenu title="Portfolio Demo" />
+      <MainMenu title={APP_TITLE} />
       <div className={classes.top}>
         {top}
       </div>

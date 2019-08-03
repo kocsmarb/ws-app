@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { AppState } from '../store/reducers';
 import * as actionCreators from '../store/actions';
 import List from '../components/category/CategoryList';
-import { Category } from '../store/schemas/product';
+import { Category } from '../store/schemas';
 
 type Props = {
   categories: Category[],

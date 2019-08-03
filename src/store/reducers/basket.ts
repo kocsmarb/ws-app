@@ -1,9 +1,9 @@
 import * as actionTypes from '../actions/action-types';
-import * as ProductTypes from '../schemas/product';
+import * as Types from '../schemas';
 
 export type BasketItem = {
-  product: ProductTypes.Product,
-      quantity: number,
+  product: Types.Product,
+  quantity: number,
 };
 
 export type BasketItems = {
@@ -20,14 +20,14 @@ const initialState: BasketState = {
   totalQuantity: 0,
 };
 
-const addItem = (state: BasketState, product: ProductTypes.Product): BasketState => {
+const addItem = (state: BasketState, product: Types.Product): BasketState => {
   const item = state.items[product.id];
   return {
     ...state,
     items: {
       ...state.items,
       [product.id]: {
-        product: {...product},
+        product: { ...product },
         quantity: item ? item.quantity + 1 : 1,
       },
     },
@@ -35,14 +35,14 @@ const addItem = (state: BasketState, product: ProductTypes.Product): BasketState
   };
 };
 
-const removeItem = (state: BasketState, id: ProductTypes.Id): BasketState => {
+const removeItem = (state: BasketState, id: Types.Id): BasketState => {
   const items = { ...state.items };
-  if(!items[id]) return state;
-  if(items[id].quantity === 1){
-     delete items[id];
+  if (!items[id]) return state;
+  if (items[id].quantity === 1) {
+    delete items[id];
   } else {
-    // Redux conceptional problem - should not manipulate the state directly
-    items[id].quantity = items[id].quantity -1;
+    // TODO: Redux conceptional problem - should not manipulate the state directly
+    items[id].quantity = items[id].quantity - 1;
   }
   return {
     ...state,
@@ -51,12 +51,16 @@ const removeItem = (state: BasketState, id: ProductTypes.Id): BasketState => {
   };
 };
 
-export default function basketReducer(state = initialState, action: any): BasketState {
+export default function basketReducer(state = initialState, action: actionTypes.BasketActions): BasketState {
   switch (action.type) {
     case actionTypes.BASKET_ADD_ITEM:
       return addItem(state, action.item);
     case actionTypes.BASKET_REMOVE_ITEM:
       return removeItem(state, action.id);
+    case actionTypes.BASKET_RESET:
+      return {
+        ...initialState
+      };
     default:
       return state;
   }

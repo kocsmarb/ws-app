@@ -1,9 +1,9 @@
 import * as actionTypes from '../actions/action-types';
-import * as ProductTypes from '../schemas/product';
+import * as Types from '../schemas';
 
 type ProductsState = {
-  items: ProductTypes.Product[],
-  categories: ProductTypes.Category[],
+  items: Types.Product[],
+  categories: Types.Category[],
 };
 
 const initialState: ProductsState = {
@@ -11,7 +11,7 @@ const initialState: ProductsState = {
   categories: [],
 };
 
-export default function products(state = initialState, action: any): ProductsState {
+export default function products(state = initialState, action: actionTypes.ProductsActions): ProductsState {
   switch (action.type) {
     case actionTypes.PRODUCTS_RECEIVE:
       return {
