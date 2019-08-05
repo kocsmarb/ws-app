@@ -1,29 +1,28 @@
 import { createStyles, Theme } from '@material-ui/core/styles';
 
-const styles = (theme: Theme) => createStyles({
-  root: {
-    width: '100%',
+const style = (theme: Theme) => createStyles({
+  paper: {
     marginTop: theme.spacing(3),
-    overflowX: 'auto',
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1),
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(2),
+    [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
+      padding: theme.spacing(3),
+    },
   },
-  table: {
-    minWidth: 240,
+  stepper: {
+    padding: theme.spacing(3, 0, 5),
   },
-  title: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
+  buttons: {
+    display: 'flex',
+    justifyContent: 'flex-end',
   },
-  toPayment: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    alignItems: 'center',
-    textAlign: 'center',
-    justifyContent: 'center',
-    width: '100%',
+  button: {
+    marginTop: theme.spacing(3),
+    marginLeft: theme.spacing(1),
   },
-  row: {},
 });
 
-export default styles;
+export type Style = ReturnType<typeof style>;
+export default style;

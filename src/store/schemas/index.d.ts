@@ -17,3 +17,18 @@ export type User = {
 };
 
 export type JWT = string;
+
+
+type OrderInputItem = {
+  productId: Id;
+  price: number;
+  quantity: number;
+};
+
+export type OrderInput = {
+  userId: Id,
+  firstName: string,
+  lastName: string,
+  address: string,
+  items: OrderInputItem[],
+};

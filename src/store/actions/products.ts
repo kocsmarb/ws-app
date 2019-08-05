@@ -11,8 +11,8 @@ import {
 } from './action-types';
 import * as Types from '../schemas';
 import client from '../../core/graphql/client';
-import { PRODUCTS_BY_CATEGORY_QUERY } from '../../core/graphql/operations/products';
-import { CATEGORIES_QUERY } from '../../core/graphql/operations/categories';
+import { PRODUCTS_BY_CATEGORY_QUERY } from '../../core/graphql/operations/product';
+import { CATEGORIES_QUERY } from '../../core/graphql/operations/category';
 
 export const request = () => ({
   type: PRODUCTS_REQUEST,
