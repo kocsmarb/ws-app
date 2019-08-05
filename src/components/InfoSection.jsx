@@ -46,26 +46,16 @@ export default function PaperSheet() {
       <div className={classes.section}>
         <Grid container spacing={8}>
           <Grid item xs={12} sm={6} md={3}>
-            <InfoArea
-              title="Válassz ételt!"
-              icon={LocalPizza}
-              iconColor="action"
-              classes={classes}
-            />
+            <InfoArea title="Choose food!" icon={LocalPizza} iconColor="action" classes={classes} />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
-            <InfoArea title="Rendeld meg!" icon={PinDrop} iconColor="action" classes={classes} />
+            <InfoArea title="Order!" icon={PinDrop} iconColor="action" classes={classes} />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
-            <InfoArea title="Fizesd ki!" icon={Paymant} iconColor="action" classes={classes} />
+            <InfoArea title="Pay!" icon={Paymant} iconColor="action" classes={classes} />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
-            <InfoArea
-              title="Jó étvágyat!"
-              icon={Restaurant}
-              iconColor="secondary"
-              classes={classes}
-            />
+            <InfoArea title="Enjoy!" icon={Restaurant} iconColor="secondary" classes={classes} />
           </Grid>
         </Grid>
       </div>

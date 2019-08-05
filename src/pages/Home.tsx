@@ -42,7 +42,7 @@ const HomePage: React.FC = () => {
             className={classes.fab}
           >
             <NavigationIcon className={classes.extendedIcon} />
-            Éhes vagy?
+            Are You Hungry?
           </Fab>
         </Parallax>
       }
@@ -51,7 +51,7 @@ const HomePage: React.FC = () => {
         <InfoSection />
         <Paper component="section" className={classes.categoryTitle}>
           <Typography variant="h4" component="h1">
-            Kategóriák
+            Categories
         </Typography>
           <CategoryList />
         </Paper>

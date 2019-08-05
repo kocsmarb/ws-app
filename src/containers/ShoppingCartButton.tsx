@@ -9,7 +9,7 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const NavShoppingCartButton = (props: any) => (
-  <NavLink to="/checkout">
+  <NavLink to="/basket">
     <ShoppingCartButton {...props} />
   </NavLink>
 );

@@ -1,3 +1,7 @@
+/**
+ * Based on: https://github.com/creativetimofficial/material-kit-react/tree/master/src/components/Parallax
+ */
+
 import * as React from "react";
 import clsx from 'clsx';
 import { withStyles, WithStyles } from '@material-ui/core/styles';

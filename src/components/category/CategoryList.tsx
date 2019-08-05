@@ -33,7 +33,7 @@ const CategoryList: React.FC<Props> = (props: Props) => {
                 <Hidden xsDown>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/featured/?food,drink"
+                    image={require('../../assets/food1.jpeg')}
                     title="Image title"
                   />
                 </Hidden>

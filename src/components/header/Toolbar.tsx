@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Fab from '@material-ui/core/Fab';
-import LogoIcon from '@material-ui/icons/BlurLinearOutlined';
+import LogoIcon from '@material-ui/icons/GestureRounded';
 import ShoppingCartButton from '../../containers/ShoppingCartButton';
 import NavLink from '../navigation/NavLink';
 import withAuth, { WithAuthProps } from '../../containers/hoc/withAuth';
@@ -65,17 +65,17 @@ const MainToolbar: React.FC<Props & WithAuthProps> = ({ title, currentUser, logo
               <Typography
                 variant="h6"
               >
-                Regisztráció
+                Registration
               </Typography>
             </NavLink>
             <NavLink to='/login'>
               <Fab
                 variant="extended"
                 size="small"
-                aria-label="Bejelentkezes"
+                aria-label="Sign in"
                 className={classes.login}
               >
-                Bejelentkezés
+                Sign In
               </Fab>
             </NavLink>
           </React.Fragment>

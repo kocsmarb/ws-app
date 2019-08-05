@@ -33,7 +33,6 @@ const ProfileSubMenu: React.FC<WithAuthProps> = ({ logout, currentUser }) => {
         <AccountCircle />
       </IconButton>
       <Menu
-        id="menu-appbar"
         anchorEl={anchorEl}
         anchorOrigin={{
           vertical: 'top',

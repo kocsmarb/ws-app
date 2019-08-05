@@ -42,13 +42,16 @@ class AppBarWithTransition extends React.Component<Props>{
     } else {
       this.ref.current.classList.add(classes.transparent);
     }
-  };
+  }
+
   componentDidMount() {
     window.addEventListener("scroll", this.headerColorChange);
   }
+
   componentWillUnmount() {
     window.addEventListener("scroll", this.headerColorChange);
   }
+  
   render(){
     const { transparentHeight, classes, ...rest } = this.props;
     return (

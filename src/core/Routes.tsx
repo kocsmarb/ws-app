@@ -11,26 +11,25 @@ import loadable from '@loadable/component';
 
 import withAuth, { WithAuthProps } from '../containers/hoc/withAuth';
 
-const asyncHome = loadable(() => import('../pages/Home'));
-const asyncCheckout = loadable(() => import('../pages/Checkout'));
-const asyncCategory = loadable(() => import('../pages/Category'));
+const AsyncHome = loadable(() => import('../pages/Home'));
+const AsyncShoppingCart = loadable(() => import('../pages/ShoppingCart'));
+const AsyncCheckout = loadable(() => import('../pages/Checkout'));
+const AsyncCategory = loadable(() => import('../pages/Category'));
 const AsyncLogin = loadable(() => import('../pages/Login'));
-const asyncRegistration = loadable(() => import('../pages/Registration'));
+const AsyncRegistration = loadable(() => import('../pages/Registration'));
 
 class Routes extends React.Component<RouteComponentProps & WithAuthProps> {
   render() {
+    const { currentUser } = this.props;
     return (
       <Switch>
-        <Route path="/category/:category" exact component={asyncCategory} />
-        <Route path="/checkout" exact component={asyncCheckout} />
-        <Route
-          path="/login"
-          exact
-          render={() => this.props.currentUser ? <Redirect to="/" /> : <AsyncLogin />}
-        />
-        <Route path="/registration" exact component={asyncRegistration} />
-        <Route path="/home" exact component={asyncHome} />
-        <Route path="/" component={asyncHome} />
+        <Route path="/category/:category" exact component={AsyncCategory} />
+        <Route path="/basket" exact render={() => !currentUser ? <Redirect to="/" /> : <AsyncShoppingCart />}  />
+        <Route path="/checkout" exact render={() => !currentUser ? <Redirect to="/" /> : <AsyncCheckout />} />
+        <Route path="/login" exact render={() => currentUser ? <Redirect to="/" /> : <AsyncLogin />} />
+        <Route path="/registration" exact component={AsyncRegistration} />
+        <Route path="/home" exact component={AsyncHome} />
+        <Route path="/" component={AsyncHome} />
       </Switch>
     );
   }

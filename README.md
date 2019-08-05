@@ -6,6 +6,8 @@ npm run start
 ```
 
 ```
-ENVIRONMENT VARIABLES:
+Environment Variables:
 
+REACT_APP_GRAPHQL_BASE_URL
+REACT_APP_APP_TITLE
 ```
