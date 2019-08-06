@@ -32,6 +32,7 @@ export type Values = {
   firstName: string,
   lastName: string,
   address: string,
+  phone: string,
 };
 
 type State = {
@@ -46,6 +47,7 @@ class Checkout extends React.Component<Props, State> {
       firstName: '',
       lastName: '',
       address: '',
+      phone: '',
     },
     activeStep: 0,
     checkoutId: 0,
@@ -54,6 +56,10 @@ class Checkout extends React.Component<Props, State> {
 
   componentDidMount() {
     this.setState({ ...this.state, checkoutId: Date.now() });
+    // TODO: 3rd party problem: we should remove rule on componentWillUnmount
+    ValidatorForm.addValidationRule('isPhoneNumber', value => {
+      return /^\([0-9]{2}\)\s[0-9]{3}-[0-9]{4}$/.test(value);
+    });
   }
 
   getStepContent = (step: any) => {
@@ -108,7 +114,7 @@ class Checkout extends React.Component<Props, State> {
       throw new Error('Oooops! You should not be here!');
     }
 
-    const { firstName, lastName, address } = this.state.values;
+    const { firstName, lastName, address, phone } = this.state.values;
     const { items } = this.props;
 
     this.props.createOrder(
@@ -117,6 +123,7 @@ class Checkout extends React.Component<Props, State> {
         firstName,
         lastName,
         address,
+        phone,
         items: Object.keys(items).map(id => ({
           productId: items[id].product.id,
           price: items[id].product.price,
@@ -139,8 +146,8 @@ class Checkout extends React.Component<Props, State> {
         {this.getStepContent(activeStep)}
         <div className={classes.buttons}>
           {activeStep !== 0 && (
-            <Button 
-              onClick={this.handleBack} 
+            <Button
+              onClick={this.handleBack}
               className={classes.button}
             >
               Back

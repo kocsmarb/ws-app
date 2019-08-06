@@ -37,7 +37,7 @@ const ProductList: React.FC<Props> = (props: Props) => {
     >
       {
         items && items.map(product => (
-          <Grid item key={product.id} xs={12} md={4}>
+          <Grid item key={product.id} xs={12} sm={6} md={4}>
             <Card className={classes.card}>
               <CardHeader
                 title={product.name}
@@ -46,7 +46,7 @@ const ProductList: React.FC<Props> = (props: Props) => {
               />
               <CardMedia
                 className={classes.media}
-                image="https://source.unsplash.com/featured/?food,drink"
+                image={require('../../assets/wine.jpeg')}
                 title="Image Title"
               />
               <CardActions disableSpacing className={classes.cardActions}>

@@ -70,6 +70,9 @@ const Review: React.FC<Props> = ({ classes, items, values }) => {
         <Typography component="p">
           {values.address}
         </Typography>
+        <Typography component="p">
+          +36 {values.phone}
+        </Typography>
       </Paper>
     </React.Fragment>
   );

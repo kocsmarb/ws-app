@@ -8,7 +8,6 @@ const styles = (theme: Theme) => createStyles({
   },
   card: {
     height: '100%',
-    maxWidth: 345,
   },
   media: {
     height: 0,
