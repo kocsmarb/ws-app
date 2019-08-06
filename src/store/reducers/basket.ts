@@ -2,17 +2,17 @@ import * as actionTypes from '../actions/action-types';
 import * as Types from '../schemas';
 
 export type BasketItem = {
-  product: Types.Product,
-  quantity: number,
+  product: Types.Product;
+  quantity: number;
 };
 
 export type BasketItems = {
-  [s: string]: BasketItem
+  [s: string]: BasketItem;
 };
 
 type BasketState = {
-  items: BasketItems,
-  totalQuantity: number,
+  items: BasketItems;
+  totalQuantity: number;
 };
 
 const initialState: BasketState = {
@@ -51,7 +51,10 @@ const removeItem = (state: BasketState, id: Types.Id): BasketState => {
   };
 };
 
-export default function basketReducer(state = initialState, action: actionTypes.BasketActions): BasketState {
+export default function basketReducer(
+  state = initialState,
+  action: actionTypes.BasketActions,
+): BasketState {
   switch (action.type) {
     case actionTypes.BASKET_ADD_ITEM:
       return addItem(state, action.item);
@@ -59,7 +62,7 @@ export default function basketReducer(state = initialState, action: actionTypes.
       return removeItem(state, action.id);
     case actionTypes.BASKET_RESET:
       return {
-        ...initialState
+        ...initialState,
       };
     default:
       return state;
