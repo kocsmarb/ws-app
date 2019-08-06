@@ -51,7 +51,6 @@ class Login extends React.Component<Props & WithStyles<Style>, State> {
             <TextValidator
               variant="outlined"
               margin="normal"
-              required
               fullWidth
               id="email"
               label="Email Address"
@@ -66,7 +65,6 @@ class Login extends React.Component<Props & WithStyles<Style>, State> {
             <TextValidator
               variant="outlined"
               margin="normal"
-              required
               fullWidth
               name="password"
               label="Password"
@@ -101,8 +99,8 @@ class Login extends React.Component<Props & WithStyles<Style>, State> {
           }
         </div>
       </Container>
-        );
-      }
-    }
-    
-    export default withStyles(style)(Login);
+    );
+  }
+}
+
+export default withStyles(style)(Login);

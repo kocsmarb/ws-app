@@ -26,6 +26,12 @@ class Registration extends React.Component<Props & WithStyles<Style>, State> {
     password: '',
   };
 
+  componentDidMount() {
+    ValidatorForm.addValidationRule('isPassword', value => {
+      return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value);
+    });
+  }
+
   handleChange = (name: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ ...this.state, [name]: event.target.value });
   }
@@ -53,7 +59,6 @@ class Registration extends React.Component<Props & WithStyles<Style>, State> {
             <TextValidator
               variant="outlined"
               margin="normal"
-              required
               fullWidth
               id="email"
               label="Email Address"
@@ -68,7 +73,6 @@ class Registration extends React.Component<Props & WithStyles<Style>, State> {
             <TextValidator
               variant="outlined"
               margin="normal"
-              required
               fullWidth
               name="password"
               label="Password"
@@ -77,8 +81,8 @@ class Registration extends React.Component<Props & WithStyles<Style>, State> {
               autoComplete="current-password"
               value={this.state.password}
               onChange={this.handleChange('password')}
-              validators={['required', 'minStringLength:8']}
-              errorMessages={['this field is required', 'min 8 chars']}
+              validators={['required', 'minStringLength:8', 'isPassword']}
+              errorMessages={['this field is required', 'min 8 chars', 'choose a stronger password (a-z,A-Z,1-9)']}
             />
 
             <Button
@@ -99,14 +103,14 @@ class Registration extends React.Component<Props & WithStyles<Style>, State> {
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           {
-            registrationSucceed 
-              ? <RegistrationSucceed email={registrationSucceed} /> 
+            registrationSucceed
+              ? <RegistrationSucceed email={registrationSucceed} />
               : form
           }
         </div>
       </Container>
-        );
-      }
-    }
-    
-    export default withStyles(style)(Registration);
+    );
+  }
+}
+
+export default withStyles(style)(Registration);
