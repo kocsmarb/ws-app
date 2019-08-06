@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import RemoveIcon from '@material-ui/icons/Delete';
 import { Id } from '../../store/schemas';
@@ -18,9 +19,10 @@ import NavLink from '../navigation/NavLink';
 type Props = WithStyles & {
   items: BasketItems,
   removeItem?: (id: Id) => void,
+  resetBasket: () => void,
 };
 
-const ShoppingCart: React.FC<Props> = ({ classes, items, removeItem }) => {
+const ShoppingCart: React.FC<Props> = ({ classes, items, removeItem, resetBasket }) => {
   const currency = 'Ft';
   const mappedItems = Object.keys(items).map(k => items[k]);
   const totalPrice = mappedItems.reduce((sum, i) => (i.quantity * i.product.price) + sum, 0);
@@ -69,9 +71,27 @@ const ShoppingCart: React.FC<Props> = ({ classes, items, removeItem }) => {
                 Total: <small>{totalPrice} {currency}</small>
               </Typography>
             </div>
-            <NavLink to="/checkout">
-              <Button className={classes.checkoutBtn} variant="outlined" size="large" color="primary">Checkout</Button>
-            </NavLink>
+
+            <Grid
+              container
+              direction="row"
+              justify="space-between"
+              alignItems="flex-start"
+            >
+              <Button
+                onClick={resetBasket}
+                className={classes.checkoutBtn}
+                variant="outlined"
+                size="large"
+                color="primary"
+              >
+                Reset Shopping cart
+              </Button>
+              <NavLink to="/checkout">
+                <Button className={classes.checkoutBtn} variant="contained" size="large" color="primary">Checkout</Button>
+              </NavLink>
+            </Grid>
+
           </div>
         ) : null
       }
