@@ -10,7 +10,7 @@ export type BasketItems = {
   [s: string]: BasketItem;
 };
 
-type BasketState = {
+export type BasketState = {
   items: BasketItems;
   totalQuantity: number;
 };
