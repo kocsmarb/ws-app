@@ -1,0 +1,16 @@
+FROM node:11.15 AS mynode
+
+WORKDIR /usr/app
+
+COPY . .
+RUN npm install
+
+ENV REACT_APP_GRAPHQL_BASE_URL ""
+ENV REACT_APP_APP_TITLE "App Title"
+ENV REACT_APP_BASKET_PRICE_LIMIT 22000
+ENV REACT_APP_BASKET_ERROR_PRICE 15000
+
+
+RUN npm install -g serve
+EXPOSE 4000
+ENTRYPOINT npm run build & serve -s /usr/app/build -l 4000
