@@ -2,10 +2,10 @@
 
 ## This is a demo SPA with shopping cart capabilities
 
-## Quick start 
+## Before start the app you should configure a graphQL middleware
 
-* set REACT_APP_GRAPHQL_BASE_URL
-* `npm run start`
+- set REACT_APP_GRAPHQL_BASE_URL
+- `npm run start`
 
 ```
 Environment Variables:
@@ -16,5 +16,8 @@ REACT_APP_BASKET_PRICE_LIMIT
 REACT_APP_BASKET_ERROR_PRICE
 ```
 
-## To start a demo graphQL server run
-* `docker-compose up -d`
+## Or You can start a demo app with pre-configured middleware and database
+
+> [WS-demo](https://github.com/kocsmarb/ws-demo)
+
+> [WS-middleware](https://github.com/kocsmarb/ws-middleware)
